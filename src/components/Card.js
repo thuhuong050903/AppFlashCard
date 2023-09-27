@@ -1,18 +1,16 @@
 import React, { useState } from 'react';
 import { StyleSheet, View, Text, TouchableOpacity } from 'react-native';
 
-const Card = ({ vietnamese, english }) => {
-  const [isFlipped, setIsFlipped] = useState(false);
-
+const Card = ({ isFlipped, onFlip, content }) => {
   const flipCard = () => {
-    setIsFlipped(!isFlipped);
+    onFlip(!isFlipped);
   };
 
   return (
     <TouchableOpacity onPress={flipCard}>
       <View style={styles.cardContainer}>
         <Text style={styles.cardText}>
-          {isFlipped ? english : vietnamese}
+          {isFlipped ? content.vietnamese : content.english}
         </Text>
       </View>
     </TouchableOpacity>
